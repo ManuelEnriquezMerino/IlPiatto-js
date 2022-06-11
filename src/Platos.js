@@ -1,32 +1,10 @@
-import { useEffect, useState } from "react";
 import ListadoDePlatos from "./ListadoDePlatos";
+import useFetch from "./useFetch";
+
 
 const Platos = () => {
-    const [platos, setPlatos] = useState(null);
-    const [cargando, setCargando] = useState(true);
-    const [error, setError] = useState(null);
 
-    useEffect(() => {
-        fetch("https://il-piatto-api.herokuapp.com/platos")
-            .then(response => {
-                return response.json()
-            })
-            .then((data) => {
-                if(data.codigo===200){
-                    setError(null)
-                    setPlatos(data);
-                }
-                else{
-                    setPlatos(null);
-                    setError(data.error)
-                }
-                setCargando(false);
-            })
-            .catch(error => {
-                setCargando(false);
-                setError(error.message)
-            })
-    }, [])
+    const {datos:platos,cargando,error} = useFetch("https://il-piatto-api.herokuapp.com/platos");
 
     return ( 
         <div className="platos">
