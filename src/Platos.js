@@ -5,7 +5,7 @@ const Platos = () => {
     const [platos, setPlatos] = useState(null)
 
     useEffect(() => {
-        fetch("http://il-piatto-api.herokuapp.com/platos")
+        fetch("https://il-piatto-api.herokuapp.com/platos")
             .then(response => {
                 return response.json()
             })
