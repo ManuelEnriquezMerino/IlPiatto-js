@@ -1,5 +1,3 @@
-import Platos from "./Platos";
-
 const ListadoDePlatos = ({platos}) => {
     return ( 
         <div className="listado-platos">

@@ -1,13 +1,65 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+
+
+.logo{
+  margin-right: auto;
+  max-width: 60px;
+  height: auto;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* base styles */
+* {
+  margin: 0;
+  background-color: #282c34;
+  font-family: "Quicksand";
+  color: rgb(230, 224, 208);
+}
+
+/* Barra de navegacion */
+.barranavegacion *{
+  background-color: #35383d;
+}
+
+.barranavegacion {
+  background-color: #35383d;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  box-shadow: 1px 5px 10px #181a1c6c;
+
+}
+.barranavegacion h1 {
+  color: #c8975b;
+}
+.barranavegacion .links {
+  margin-left: auto;
+}
+.barranavegacion a {
+  margin-left: 16px;
+  text-decoration: none;
+  padding: 6px;
+}
+.barranavegacion a:hover {
+  color: #b88445;
+}
+.content {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+/* platos */
+.preview-plato {
+  padding: 10px 16px;
+  margin: 20px 0;
+}
+.preview-plato:hover {
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.703);
+}
+.preview-plato h2 {
+  font-size: 20px;
+  color: #c8975b;
+  margin-bottom: 8px;
 }
