@@ -1,5 +1,5 @@
 import ListadoDePlatos from "./components/ListadoDePlatos";
-import useFetch from "./useFetch";
+import useFetch from "./hooks/useFetch";
 
 
 const Platos = () => {

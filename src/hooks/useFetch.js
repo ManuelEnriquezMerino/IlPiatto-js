@@ -12,19 +12,19 @@ const useFetch = (url) => {
             })
             .then((data) => {
                 if(data.codigo===200){
-                    setError(null)
+                    setError(null);
                     setDatos(data);
                 }
                 else{
                     setDatos(null);
-                    setError(data.error)
+                    setError(data.error);
                 }
                 setCargando(false);
             })
             .catch(error => {
                 setDatos(null);
                 setCargando(false);
-                setError(error.message)
+                setError(error.message);
             })
     }, [url]);
 

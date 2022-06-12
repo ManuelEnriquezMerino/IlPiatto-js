@@ -1,4 +1,5 @@
 import Platos from './Platos';
+import Pedidos from './Pedidos';
 import BarraDeNavegacion from './components/BarraDeNavegacion';
 import { BrowserRouter as Router,Route,Routes } from 'react-router-dom';
 
@@ -10,6 +11,7 @@ function App() {
         <div className="contenido">
           <Routes>
             <Route path="/platos" element={<Platos/>}/>
+            <Route path="/pedidos" element={<Pedidos/>}/>
           </Routes>
         </div>
       </Router>
