@@ -19,6 +19,7 @@
 /* Barra de navegacion */
 .barranavegacion *{
   background-color: #35383d;
+  font-size: 16px;
 }
 
 .barranavegacion {
@@ -29,20 +30,38 @@
   margin: 0 auto;
   box-shadow: 1px 5px 10px #181a1c6c;
 }
+
 .barranavegacion h1 {
   color: #c8975b;
 }
+
 .barranavegacion .links {
   margin-left: auto;
 }
+
+.barranavegacion .navbutton{
+  padding: 0;
+  border: none;
+  background: none;
+  margin-left: 16px;
+  text-decoration: none;
+  padding: 6px;
+}
+
+.barranavegacion .navbutton:hover {
+  color: #b88445;
+}
+
 .barranavegacion a {
   margin-left: 16px;
   text-decoration: none;
   padding: 6px;
 }
+
 .barranavegacion a:hover {
   color: #b88445;
 }
+
 .content {
   max-width: 600px;
   margin: 40px auto;

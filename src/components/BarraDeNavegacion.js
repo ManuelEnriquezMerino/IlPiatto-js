@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom';
+import Login from './Logueo/Login'
+import Logout from './Logueo/Logout'
 
 const BarraDeNavegacion = () => {
     return ( 
@@ -7,7 +9,8 @@ const BarraDeNavegacion = () => {
             <div className="links">
                 <Link to="/">Inicio</Link>
                 <Link to="/platos">Platos</Link>
-                <Link to="/">Iniciar Sesión</Link>
+                <Login/>
+                <Logout/>
             </div>
         </nav>
     );
