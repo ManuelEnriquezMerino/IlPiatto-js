@@ -1,4 +1,4 @@
-import ListadoDePlatos from "./ListadoDePlatos";
+import ListadoDePlatos from "./components/ListadoDePlatos";
 import useFetch from "./useFetch";
 
 
