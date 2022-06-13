@@ -6,4 +6,4 @@ const Inicio = () => {
     );
 }
 
-export default Inici;
+export default Inicio;

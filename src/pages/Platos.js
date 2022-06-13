@@ -1,5 +1,5 @@
-import ListadoDePlatos from "./components/ListadoDePlatos";
-import useFetch from "./hooks/useFetch";
+import ListadoDePlatos from "../components/ListadoDePlatos";
+import useFetch from "../hooks/useFetch";
 
 
 const Platos = () => {
@@ -10,7 +10,7 @@ const Platos = () => {
         <div className="platos">
             {error && <div className="mensaje"> {error} </div>}
             {cargando && <div className="mensaje">Cargando...</div>}
-            {platos && <ListadoDePlatos platos={platos.plato}/>}
+            {platos && <ListadoDePlatos platos={platos.platos}/>}
         </div>
     );
 }
