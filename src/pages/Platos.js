@@ -1,16 +1,25 @@
 import ListadoDePlatos from "../components/ListadoDePlatos";
 import useFetch from "../hooks/useFetch";
 import useFetchCategoriaRestriccion from "../hooks/useFetchCategoriaRestriccion";
-import Select from 'react-select';
+import SelectFiltrado from '../components/SelectFiltrado';
 import { useState } from "react";
 
+function generarArregloOpciones(inicial,opciones){
+    return [inicial].concat(
+                        opciones.map((opcion) => {return {value: opcion.id, label: opcion.nombre}})
+                    ) 
+}
+
 const Platos = () => {
+
+    const categoriaDefecto = {value:null, label:"Todas"}
+    const restriccionDefecto = {value:null, label:"Ninguna"}
 
     const {datos:categorias,cargando2,error2} = useFetch("https://il-piatto-api.herokuapp.com/platos/categorias");
     const {datos:restricciones,cargando3,error3} = useFetch("https://il-piatto-api.herokuapp.com/platos/restricciones");
 
-    const [categoriaSeleccionada, setCategoriaSeleccionada] = useState({value:null, label:"Todas"})
-    const [restriccionSeleccionada, setRestriccionSeleccionada] = useState({value:null, label:"Ninguna"})
+    const [categoriaSeleccionada, setCategoriaSeleccionada] = useState(categoriaDefecto)
+    const [restriccionSeleccionada, setRestriccionSeleccionada] = useState(restriccionDefecto)
 
     const {datos:platos,cargando,error} = useFetchCategoriaRestriccion(categoriaSeleccionada,restriccionSeleccionada);
 
@@ -19,21 +28,19 @@ const Platos = () => {
             {error && <div className="mensaje"> {error} </div>}
             {cargando && <div className="mensaje">Cargando...</div>}
             <div className="seleccion">
-                {categorias && <Select 
-                                    placeholder={"Categorias"}
-                                    value={categoriaSeleccionada}
-                                    onChange={setCategoriaSeleccionada}
-                                    isSearchable={false}
-                                    options={[{value:null, label:"Todas"}].concat(categorias.categorias.map((categoria) => {return {value: categoria.id, label: categoria.nombre}}))}
-                                />
+                {categorias && 
+                    <SelectFiltrado
+                        dato={categoriaSeleccionada}
+                        funcionSet={setCategoriaSeleccionada}
+                        opciones={generarArregloOpciones(categoriaDefecto,categorias.categorias)} 
+                    />
                 }
-                {restricciones && <Select
-                                    placeholder={"Restricciones"}
-                                    value={restriccionSeleccionada}
-                                    onChange={setRestriccionSeleccionada}
-                                    isSearchable={false}
-                                    options={[{value:null, label:"Ninguna"}].concat(restricciones.restricciones.map((restriccion) => {return {value: restriccion.id, label: restriccion.nombre}}))}
-                                />
+                {restricciones && 
+                    <SelectFiltrado
+                        dato={restriccionSeleccionada}
+                        funcionSet={setRestriccionSeleccionada}
+                        opciones={generarArregloOpciones(restriccionDefecto,restricciones.restricciones)}
+                    />
                 }
             </div>
             {platos && <ListadoDePlatos platos={platos}/>}
