@@ -28,9 +28,9 @@ const useFetchCategoriaRestriccion = (categoria,restriccion) => {
                     setDatos(null);
                     var error =""
                     if(datos[0].codigo!==200)
-                        error+=datos[0].mensaje+"/n";
+                        error+=datos[0].error+"\n";
                     if (datos[1].codigo!==200)
-                        error+=datos[1].mensaje+"/n";
+                        error+=datos[1].error+"\n";
                     setError(error);
                 }
                 setCargando(false);
@@ -47,7 +47,7 @@ const useFetchCategoriaRestriccion = (categoria,restriccion) => {
         }
 
     }, [categoria,restriccion]);
-
+    
     return { datos, cargando, error}
 }
 

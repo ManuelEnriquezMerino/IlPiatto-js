@@ -10,23 +10,34 @@ function generarArregloOpciones(inicial,opciones){
                     ) 
 }
 
+function obtenerMensajeError(errorPlatos,errorCategorias,errorRestricciones){
+    var error = "";
+    if (errorPlatos)
+        error+=`Error al obtener los platos: ${errorPlatos}\n`;
+    if (errorCategorias)
+        error+=`Error al obtener las categorias: ${errorCategorias}\n`;
+    if (errorRestricciones)
+        error+=`Error al obtener las restricciones: ${errorRestricciones}\n`;
+    return error;
+}
+
 const Platos = () => {
 
-    const categoriaDefecto = {value:null, label:"Todas"}
-    const restriccionDefecto = {value:null, label:"Ninguna"}
+    const categoriaDefecto = {value:null, label:"Todas"};
+    const restriccionDefecto = {value:null, label:"Ninguna"};
 
-    const {datos:categorias,cargando2,error2} = useFetch("https://il-piatto-api.herokuapp.com/platos/categorias");
-    const {datos:restricciones,cargando3,error3} = useFetch("https://il-piatto-api.herokuapp.com/platos/restricciones");
+    const {datos:categorias,cargando:cargandoCategorias,error:errorCategorias} = useFetch("https://il-piatto-api.herokuapp.com/platos/categorias");
+    const {datos:restricciones,cargando:cargandoRestricciones,error:errorRestricciones} = useFetch("https://il-piatto-api.herokuapp.com/platos/restricciones");
 
-    const [categoriaSeleccionada, setCategoriaSeleccionada] = useState(categoriaDefecto)
-    const [restriccionSeleccionada, setRestriccionSeleccionada] = useState(restriccionDefecto)
+    const [categoriaSeleccionada, setCategoriaSeleccionada] = useState(categoriaDefecto);
+    const [restriccionSeleccionada, setRestriccionSeleccionada] = useState(restriccionDefecto);
 
-    const {datos:platos,cargando,error} = useFetchCategoriaRestriccion(categoriaSeleccionada,restriccionSeleccionada);
+    const {datos:platos,cargando:cargandoPlatos,error:errorPlatos} = useFetchCategoriaRestriccion(categoriaSeleccionada,restriccionSeleccionada);
 
     return ( 
         <div className="platos">
-            {error && <div className="mensaje"> {error} </div>}
-            {cargando && <div className="mensaje">Cargando...</div>}
+            {(errorPlatos || errorCategorias || errorRestricciones) && <div className="mensaje"> {obtenerMensajeError(errorPlatos,errorCategorias,errorRestricciones)} </div>}
+            {cargandoPlatos && cargandoCategorias && cargandoRestricciones && <div className="mensaje">Cargando...</div>}
             <div className="seleccion">
                 {categorias && 
                     <SelectFiltrado
