@@ -37,8 +37,8 @@ const Platos = () => {
     return ( 
         <div className="platos">
             {(errorPlatos || errorCategorias || errorRestricciones) && <div className="mensaje"> {obtenerMensajeError(errorPlatos,errorCategorias,errorRestricciones)} </div>}
-            {cargandoPlatos && cargandoCategorias && cargandoRestricciones && <div className="mensaje">Cargando...</div>}
-            <div className="seleccion">
+            {(cargandoPlatos || cargandoCategorias || cargandoRestricciones) && <div className="mensaje">Cargando...</div>}
+            {(!cargandoPlatos && !cargandoCategorias && !cargandoRestricciones) && <div className="seleccion">
                 {categorias && 
                     <SelectFiltrado
                         dato={categoriaSeleccionada}
@@ -54,6 +54,7 @@ const Platos = () => {
                     />
                 }
             </div>
+            }
             {platos && <ListadoDePlatos platos={platos}/>}
         </div>
     );
