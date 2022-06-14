@@ -83,7 +83,7 @@
 }
 
 .mensaje{
-  margin: 20px 0;
+  margin: 20px;
   font-size: 30px;
   text-align: center;
 }
@@ -99,3 +99,42 @@
   color: #c8975b;
   flex: 1;
 }
+
+.inicio{
+  margin:15px;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.slide-container{
+  max-width: 400px;
+  margin: auto;
+  border:3px solid #181a1f;
+}
+
+.slide-container img {
+  display: block;
+}
+
+.each-fade {
+  display: flex;
+}
+
+.each-fade .image-container {
+  max-width: 400px;
+  overflow: hidden;
+}
+
+.each-fade .image-container img {
+  max-width: 400px;
+}
+
+.each-fade h2 {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  background: #adceed;
+}
+
