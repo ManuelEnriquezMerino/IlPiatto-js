@@ -41,16 +41,26 @@ const Platos = () => {
             {platos && categorias  && restricciones &&
                 <div>
                     <div className="seleccion">
-                        <SelectFiltrado
-                            dato={categoriaSeleccionada}
-                            funcionSet={setCategoriaSeleccionada}
-                            opciones={generarArregloOpciones(categoriaDefecto,categorias.categorias)} 
-                        />
-                        <SelectFiltrado
-                            dato={restriccionSeleccionada}
-                            funcionSet={setRestriccionSeleccionada}
-                            opciones={generarArregloOpciones(restriccionDefecto,restricciones.restricciones)}
-                        />
+                        <div className="select-box">
+                            <label className="labelSeleccion">
+                                Categoria
+                                <SelectFiltrado
+                                    dato={categoriaSeleccionada}
+                                    funcionSet={setCategoriaSeleccionada}
+                                    opciones={generarArregloOpciones(categoriaDefecto,categorias.categorias)} 
+                                />
+                            </label>
+                        </div>
+                        <div className="select-box">
+                            <label className="labelSeleccion">
+                                Restriccion
+                                <SelectFiltrado
+                                    dato={restriccionSeleccionada}
+                                    funcionSet={setRestriccionSeleccionada}
+                                    opciones={generarArregloOpciones(restriccionDefecto,restricciones.restricciones)}
+                                />
+                            </label>
+                        </div>
                     </div>
                     <div className="platos">
                         <ListadoDePlatos platos={platos}/>

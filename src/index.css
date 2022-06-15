@@ -138,3 +138,36 @@
   background: #adceed;
 }
 
+.mostrarPedido{
+  margin: 20px;
+  width:auto;
+  text-align: center;
+
+}
+
+.mostrarPedido h2{
+  color: #c87673;
+}
+
+.mostrarPedido h3{
+  color: #c8975b;
+}
+
+.mostrarPedido h4{
+  color: #c6b67c;
+}
+
+.opcionales {
+  display: inline-block;
+}
+
+.labelSeleccion {
+  color: #c8975b;
+  text-align: center;
+  background: none;
+}
+
+.select-box {
+  background: none;
+  margin:25px;
+}

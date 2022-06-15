@@ -21,7 +21,7 @@ const DatosPedidoPlato = ({pedido,platos,opcionales}) => {
                     <h3>Plato: {platos.find(plato=>parseInt(plato.id)===orden.plato_id).nombre}</h3>
                     { orden.opcionales_id[0] &&
                         <div className="opcionales">
-                        <h3>Opcionales: </h3>
+                        <h4>Opcionales: </h4>
                         {orden.opcionales_id.map(opcional_id => 
                             <p key={`orden:${orden.n_orden}opcional:${opcional_id}`}>{opcionales.find(opcional=>parseInt(opcional.id)===opcional_id).nombre}</p>
                         )}
