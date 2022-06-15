@@ -38,24 +38,25 @@ const Platos = () => {
         <div className="platos">
             {(errorPlatos || errorCategorias || errorRestricciones) && <div className="mensaje"> {obtenerMensajeError(errorPlatos,errorCategorias,errorRestricciones)} </div>}
             {(cargandoPlatos || cargandoCategorias || cargandoRestricciones) && <div className="mensaje">Cargando...</div>}
-            {(!cargandoPlatos && !cargandoCategorias && !cargandoRestricciones) && <div className="seleccion">
-                {categorias && 
-                    <SelectFiltrado
-                        dato={categoriaSeleccionada}
-                        funcionSet={setCategoriaSeleccionada}
-                        opciones={generarArregloOpciones(categoriaDefecto,categorias.categorias)} 
-                    />
-                }
-                {restricciones && 
-                    <SelectFiltrado
-                        dato={restriccionSeleccionada}
-                        funcionSet={setRestriccionSeleccionada}
-                        opciones={generarArregloOpciones(restriccionDefecto,restricciones.restricciones)}
-                    />
-                }
-            </div>
+            {platos && categorias  && restricciones &&
+                <div>
+                    <div className="seleccion">
+                        <SelectFiltrado
+                            dato={categoriaSeleccionada}
+                            funcionSet={setCategoriaSeleccionada}
+                            opciones={generarArregloOpciones(categoriaDefecto,categorias.categorias)} 
+                        />
+                        <SelectFiltrado
+                            dato={restriccionSeleccionada}
+                            funcionSet={setRestriccionSeleccionada}
+                            opciones={generarArregloOpciones(restriccionDefecto,restricciones.restricciones)}
+                        />
+                    </div>
+                    <div className="platos">
+                        <ListadoDePlatos platos={platos}/>
+                    </div>
+                </div>
             }
-            {platos && <ListadoDePlatos platos={platos}/>}
         </div>
     );
 }
