@@ -1,4 +1,5 @@
 import Platos from './pages/Platos';
+import Usuario from './pages/Usuario';
 import Pedidos from './pages/Pedidos';
 import Inicio from './pages/Inicio';
 import DatosPedido from './pages/DatosPedido';
@@ -13,6 +14,7 @@ function App() {
         <div className="contenido">
           <Routes>
             <Route path="/" element={<Inicio/>}/>
+            <Route path="/usuario" element={<Usuario/>}/>
             <Route path="/platos" element={<Platos/>}/>
             <Route path="/pedidos" element={<Pedidos/>}/>
             <Route path="/pedidos/:id" element={<DatosPedido/>}/>
