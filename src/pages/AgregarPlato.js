@@ -34,21 +34,32 @@ const AgregarPlato = (carro) => {
         localStorage.setItem("platos",JSON.stringify(inventario));
     }
 
+    const obtenerMensajeError = () => {
+        var error = "";
+        if (errorPlato)
+            error+=`Error al obtener el plato: ${errorPlato}\n`;
+        if (errorOpcionales)
+            error+=`Error al obtener los opcionales: ${errorOpcionales}\n`;
+        return error;
+    }
+
     return (
         <div className="agregar-plato">
-        {plato && opcionales &&
+        {(errorPlato || (errorOpcionales && errorOpcionales!=="El plato ingresado no tiene opcionales")) && <div className="mensaje"> {obtenerMensajeError()} </div>}
+        {(cargandoPlato || cargandoOpcionales) && <div className="mensaje">Cargando...</div>}
+        {plato &&
             <form onSubmit={handleSubmit}>
                 <h1>{plato.plato[0].nombre}</h1>
                 <p>{plato.plato[0].descripcion}</p>
                 <p>${plato.plato[0].precio}</p>
                 <div className="list-container">
-                    {opcionales.opcionales.map((opcional) => (
-                        <div key={opcional.id} className="opcional">
-                            <input value={opcional.id} type="checkbox" onChange={handleCheck} />
-                            <span className={estaSeleccionado(opcional.id)}>{opcional.nombre}</span>
-                            <p>{opcional.descripcion}</p>
-                            <p>${opcional.precio}</p>
-                        </div>
+                    {opcionales && opcionales.opcionales.map((opcional) => (
+                            <div key={opcional.id} className="opcional">
+                                <input value={opcional.id} type="checkbox" onChange={handleCheck} />
+                                <span className={estaSeleccionado(opcional.id)}>{opcional.nombre}</span>
+                                <p>{opcional.descripcion}</p>
+                                <p>${opcional.precio}</p>
+                            </div>
                     ))}
                 </div>
                 <button>Agregar</button>

@@ -86,6 +86,7 @@
   margin: 20px;
   font-size: 30px;
   text-align: center;
+  white-space: pre-wrap;
 }
 
 .seleccion{

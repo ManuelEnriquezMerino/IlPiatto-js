@@ -12,18 +12,18 @@ function generarArregloOpciones(inicial,opciones){
                     ) 
 }
 
-function obtenerMensajeError(errorPlatos,errorCategorias,errorRestricciones){
-    var error = "";
-    if (errorPlatos)
-        error+=`Error al obtener los platos: ${errorPlatos}\n`;
-    if (errorCategorias)
-        error+=`Error al obtener las categorias: ${errorCategorias}\n`;
-    if (errorRestricciones)
-        error+=`Error al obtener las restricciones: ${errorRestricciones}\n`;
-    return error;
-}
-
 const Platos = () => {
+
+    const obtenerMensajeError = () => {
+        var error = "";
+        if (errorPlatos)
+            error+=`Error al obtener los platos: ${errorPlatos}\n`;
+        if (errorCategorias)
+            error+=`Error al obtener las categorias: ${errorCategorias}\n`;
+        if (errorRestricciones)
+            error+=`Error al obtener las restricciones: ${errorRestricciones}\n`;
+        return error;
+    }
 
     const { isAuthenticated } = useAuth0();
 
