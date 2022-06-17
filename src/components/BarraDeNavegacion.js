@@ -12,7 +12,9 @@ const BarraDeNavegacion = () => {
             <div className="links">
                 <Link to="/">Inicio</Link>
                 <Link to="/platos">Platos</Link>
-                {isAuthenticated && <Link to="/pedidos">Pedidos</Link>}  
+                {isAuthenticated && <Link to="/pedidos">Pedidos</Link>}
+                {isAuthenticated && <Link to="/pedido">Nuevo Pedido</Link>}
+                {isAuthenticated && <Link to="/usuario">Usuario</Link>} 
                 {!isAuthenticated && <Login/>}
                 {isAuthenticated && <Logout/>}     
             </div>

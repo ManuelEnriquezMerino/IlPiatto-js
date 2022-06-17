@@ -4,6 +4,7 @@ import Usuario from './pages/Usuario';
 import Pedidos from './pages/Pedidos';
 import Inicio from './pages/Inicio';
 import DatosPedido from './pages/DatosPedido';
+import NuevoPedido from './pages/NuevoPedido';
 import BarraDeNavegacion from './components/BarraDeNavegacion';
 import { BrowserRouter as Router,Route,Routes } from 'react-router-dom';
 
@@ -20,6 +21,7 @@ function App() {
             <Route path="/platos/:id" element={<AgregarPlato/>}/>
             <Route path="/pedidos" element={<Pedidos/>}/>
             <Route path="/pedidos/:id" element={<DatosPedido/>}/>
+            <Route path="/pedido/" element={<NuevoPedido/>}/>
           </Routes>
         </div>
       </Router>
