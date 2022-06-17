@@ -20,6 +20,7 @@
 .barranavegacion *{
   background-color: #35383d;
   font-size: 16px;
+
 }
 
 .barranavegacion {
@@ -37,6 +38,7 @@
 
 .barranavegacion .links {
   margin-left: auto;
+  display: inline-block;
 }
 
 .barranavegacion .navbutton{
@@ -55,7 +57,8 @@
 .barranavegacion a {
   margin-left: 16px;
   text-decoration: none;
-  padding: 6px;
+  padding: 10px;
+  display: inline-block;
 }
 
 .barranavegacion a:hover {
@@ -68,7 +71,10 @@
   padding: 20px;
 }
 
-/* platos */
+.platos{
+  margin: 20px;
+}
+
 .preview-plato {
   padding: 10px 16px;
   margin: 20px 0;
@@ -240,7 +246,7 @@
 
 .nuevo-pedido {
   max-width: 400px;
-  margin: 0 auto;
+  margin: 20px auto;
   text-align: center;
 }
 .nuevo-pedido label {
