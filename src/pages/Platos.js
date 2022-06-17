@@ -1,8 +1,10 @@
 import ListadoDePlatos from "../components/ListadoDePlatos";
+import ListadoDePlatosNuevoPedido from "../components/ListadoDePlatosNuevoPedido";
 import useFetch from "../hooks/useFetch";
 import useFetchCategoriaRestriccion from "../hooks/useFetchCategoriaRestriccion";
 import SelectFiltrado from '../components/SelectFiltrado';
 import { useState } from "react";
+import { useAuth0 } from '@auth0/auth0-react';
 
 function generarArregloOpciones(inicial,opciones){
     return [inicial].concat(
@@ -22,6 +24,8 @@ function obtenerMensajeError(errorPlatos,errorCategorias,errorRestricciones){
 }
 
 const Platos = () => {
+
+    const { isAuthenticated } = useAuth0();
 
     const categoriaDefecto = {value:null, label:"Todas"};
     const restriccionDefecto = {value:null, label:"Ninguna"};
@@ -63,7 +67,8 @@ const Platos = () => {
                         </div>
                     </div>
                     <div className="platos">
-                        <ListadoDePlatos platos={platos}/>
+                        {!isAuthenticated && <ListadoDePlatos platos={platos}/>}
+                        {isAuthenticated && <ListadoDePlatosNuevoPedido platos={platos}/>}
                     </div>
                 </div>
             }

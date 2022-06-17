@@ -4,7 +4,7 @@ const ListadoDePedidos = ({pedidos}) => {
     return ( 
         <div className="listado-pedidos">
             {pedidos.map((pedido) => (
-                <Link to={`/pedidos/${pedido.id}`} key={pedido.id}>
+                <Link to={`/pedidos/${pedido.id}`} key={pedido.id} className="link">
                     <div className="preview-plato">
                         <h2>ID Pedido: {pedido.id}</h2>
                         <p>Direccion: {pedido.direccion}</p>
