@@ -6,6 +6,17 @@ import useFetchTokenDatos from "../hooks/useFetchTokenDatos";
 
 const NuevoPedido = () => {
 
+    const obtenerMensajeError = () => {
+        var error = "";
+        if (errorUsuario)
+            error+=`Error al obtener los datos del usuario: ${errorUsuario}\n`;
+        if (errorPlatos)
+            error+=`Error al obtener los platos: ${errorPlatos}\n`;
+        if (errorOpcionales)
+            error+=`Error al obtener los opcionales: ${errorOpcionales}\n`;
+        return error;
+    }
+
     const [direccion,setDireccion] = useState("");
     
     const {datos:usuario,cargando:cargandoUsuario,error:errorUsuario} = useFetchToken("https://il-piatto-api.herokuapp.com/usuarios")
@@ -42,7 +53,9 @@ const NuevoPedido = () => {
 
     return (
             <div className="nuevo-pedido">
-                {platos && opcionales && inventario && 
+                {(errorUsuario || errorPlatos || errorOpcionales) && <div className="mensaje"> {obtenerMensajeError()} </div>}
+                {(cargandoUsuario || cargandoPlatos || cargandoOpcionales) && <div className="mensaje">Cargando...</div>}
+                {usuario && platos && opcionales && inventario && 
                     <form onSubmit={handleSubmit}>
                         <div className="direccion">
                             <label>Direccion</label>
