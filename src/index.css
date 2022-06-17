@@ -182,11 +182,6 @@
   padding: 6px 10px;
   margin: 10px 0;
 }
-.usuario h2 {
-  font-size: 20px;
-  color: #f1356d;
-  margin-bottom: 30px;
-}
 .usuario input {
   width: 100%;
   padding: 6px 10px;
@@ -195,13 +190,36 @@
   box-sizing: border-box;
   display: block;
 }
-.usuario button {
+
+.boton {
   background: #181f2e;
   color: #fff;
   border: 2px solid #121329;
   padding: 8px;
   border-radius: 8px;
   cursor: pointer;  
+}
+
+.boton-deshabilitado {
+  background: #26282d;
+  color: #fff;
+  border: 2px solid #151515;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.boton-plato-pedido{
+  background: #181f2e;
+  color: #fff;
+  border: 2px solid #121329;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer; 
+  margin-bottom: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: 0;
+  margin-top: 0;
 }
 
 .agregar-plato{
@@ -216,4 +234,26 @@
 
 .link {
   text-decoration: none;
+}
+
+
+.nuevo-pedido {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+.nuevo-pedido label {
+  padding: 6px 10px;
+  margin: 10px 0;
+}
+.nuevo-pedido input {
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+}
+
+.direccion{
+  display:flex;
 }

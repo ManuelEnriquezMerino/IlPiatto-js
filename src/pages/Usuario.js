@@ -4,6 +4,8 @@ import useFetchTokenDatos from "../hooks/useFetchTokenDatos";
 
 const Usuario = () => {
 
+    const [nombreUsuario,setNombreUsuario] = useState("")
+    const [email,setEmail] = useState("")
     const [nombre,setNombre] = useState("")
     const [apellido,setApellido] = useState("")
     const [nacimiento,setNacimiento] = useState("")
@@ -23,6 +25,8 @@ const Usuario = () => {
 
     useEffect(() => {
         if(usuario){
+            setNombreUsuario(usuario.usuario.usuario)
+            setEmail(usuario.usuario.email)
             setNombre(usuario.usuario.nombre)
             setApellido(usuario.usuario.apellido)
             setNacimiento(usuario.usuario.nacimiento)
@@ -38,8 +42,8 @@ const Usuario = () => {
             {cargandoUsuario && <div className="mensaje">Cargando...</div>}
             {usuario &&
                 <div>
-                    <label>Usuario: </label>
-                    <label>Email: </label>
+                    <label>Usuario: {nombreUsuario}</label>
+                    <label>Email: {email}</label>
                     <form onSubmit={handleSubmit}>
                         <label>Nombre</label>
                         <input type="text" required value={nombre} onChange={(e) => setNombre(e.target.value)}/>
@@ -49,8 +53,8 @@ const Usuario = () => {
                         <input type="text" required value={nacimiento} onChange={(e) => setNacimiento(e.target.value)}/>
                         <label>Direccion</label>
                         <input type="text" required value={direccion} onChange={(e) => setDireccion(e.target.value)}/>
-                        {!cargandoPut && <button>Guardar</button>}
-                        {cargandoPut && <button>Guardando usuario</button>}
+                        {!cargandoPut && <button className="boton">Guardar</button>}
+                        {cargandoPut && <button className="boton-deshabilitado" disabled>Guardando usuario</button>}
                     </form>
                 </div>
             }
