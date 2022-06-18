@@ -62,7 +62,7 @@ const AgregarPlato = (carro) => {
                             </div>
                     ))}
                 </div>
-                <button>Agregar</button>
+                <button className="boton">Agregar</button>
             </form>
         }
         </div>

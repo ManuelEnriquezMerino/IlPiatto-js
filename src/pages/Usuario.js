@@ -38,7 +38,7 @@ const Usuario = () => {
     return (
 
         <div className="usuario">
-            {errorUsuario && <div className="mensaje"> {errorUsuario.error} </div>}
+            {errorUsuario && <div className="mensaje"> {errorUsuario} </div>}
             {cargandoUsuario && <div className="mensaje">Cargando...</div>}
             {usuario &&
                 <div>
