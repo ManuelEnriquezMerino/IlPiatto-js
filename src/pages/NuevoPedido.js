@@ -17,13 +17,19 @@ const NuevoPedido = () => {
         return error;
     }
 
+    const inicializarInventario = () => {
+        var inventario = JSON.parse(localStorage.getItem("platos"))
+        if(!inventario)
+            inventario = []
+        return inventario
+    }
+
     const [direccion,setDireccion] = useState("");
     
     const {datos:usuario,cargando:cargandoUsuario,error:errorUsuario} = useFetchToken("https://il-piatto-api.herokuapp.com/usuarios")
     const {datos:platos,cargando:cargandoPlatos,error:errorPlatos} = useFetch("https://il-piatto-api.herokuapp.com/platos");
     const {datos:opcionales,cargando:cargandoOpcionales,error:errorOpcionales} = useFetch("https://il-piatto-api.herokuapp.com/platos/opcionales");
-    const [inventario, setInventario] = useState(JSON.parse(localStorage.getItem("platos")))
-
+    const [inventario, setInventario] = useState(inicializarInventario)
     const url = "https://il-piatto-api.herokuapp.com/pedidos"
     const [mensajePost,setMensajePost] = useState(null);
 
@@ -40,13 +46,13 @@ const NuevoPedido = () => {
     },[inventario])
 
     const handleRemove = (event) => {
+        event.preventDefault();
         const indice = parseInt(event.target.value);
         setInventario(inventario.slice(0, indice).concat(inventario.slice(indice + 1)))
     };
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(inventario)
         setMensajePost({method: "POST", objeto: JSON.stringify({direccion:direccion,pedido:inventario})})
         setInventario([]);
     }
