@@ -15,7 +15,7 @@ const Usuario = () => {
 
     const [url,setURL] = useState("");
     const [mensajePut,setUsuarioMensajePut] = useState(null);
-    const {datos:datosPut,cargando:cargandoPut,error:errorPut} = useFetchTokenDatos(url,mensajePut);
+    const {cargando:cargandoPut,error:errorPut} = useFetchTokenDatos(url,mensajePut);
 
 
     const handleSubmit = (e) => {
@@ -29,16 +29,25 @@ const Usuario = () => {
             setEmail(usuario.usuario.email)
             setNombre(usuario.usuario.nombre)
             setApellido(usuario.usuario.apellido)
-            setNacimiento(usuario.usuario.nacimiento)
+            setNacimiento(usuario.usuario.nacimiento.substring(0, usuario.usuario.nacimiento.indexOf('T')))
             setDireccion(usuario.usuario.direccion)
             setURL(`https://il-piatto-api.herokuapp.com/usuarios/${usuario.usuario.id}`);
         }
     },[usuario])
 
+    const obtenerMensajeError = () => {
+        var error = "";
+        if (errorUsuario)
+            error+=`Error al obtener los datos del usuario: ${errorUsuario}\n`;
+        if (errorPut)
+            error+=`Error al modificar los datos del usuario: ${errorPut}\n`;
+        return error
+    }
+
     return (
 
         <div className="usuario">
-            {errorUsuario && <div className="mensaje"> {errorUsuario} </div>}
+            {(errorUsuario || errorPut) && <div className="mensaje"> {obtenerMensajeError()} </div>}
             {cargandoUsuario && <div className="mensaje">Cargando...</div>}
             {usuario &&
                 <div>

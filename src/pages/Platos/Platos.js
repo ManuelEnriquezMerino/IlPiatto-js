@@ -40,7 +40,7 @@ const Platos = () => {
 
     return ( 
         <div className="platos">
-            {(errorPlatos || errorCategorias || errorRestricciones) && <div className="mensaje"> {obtenerMensajeError(errorPlatos,errorCategorias,errorRestricciones)} </div>}
+            {(errorPlatos || errorCategorias || errorRestricciones) && <div className="mensaje"> {obtenerMensajeError()} </div>}
             {(cargandoPlatos || cargandoCategorias || cargandoRestricciones) && <div className="mensaje">Cargando...</div>}
             {platos && categorias  && restricciones &&
                 <div>

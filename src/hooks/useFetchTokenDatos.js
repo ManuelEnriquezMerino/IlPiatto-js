@@ -24,10 +24,13 @@ const useFetchTokenDatos = (url,mensaje) => {
                     body: mensaje.objeto
                 })
                     .then(response => {
-                        return response.json()
+                        var data = null
+                        if(response.status!==204)
+                            data = response.json()
+                        return data
                     })
                     .then((data) => {
-                        if(data.codigo>=200 && data.codigo<=299){
+                        if(!data || (data.codigo>=200 && data.codigo<=299)){
                             setError(null);
                             setDatos(data);
                         }
