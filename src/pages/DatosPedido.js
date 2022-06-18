@@ -27,7 +27,7 @@ const DatosPedido = () => {
             {(errorPedido || errorPlatos || errorOpcionales) && <div className="mensaje"> {obtenerMensajeError(errorPlatos,errorOpcionales)} </div>}
             {(cargandoPedido || cargandoPlatos || cargandoOpcionales) && <div className="mensaje">Cargando...</div>}
             {pedido && platos && opcionales &&
-                <DatosPedidoPlato pedido={pedido} platos={platos.platos} opcionales={opcionales.opcionales}/>
+                <DatosPedidoPlato id={id} pedido={pedido} platos={platos.platos} opcionales={opcionales.opcionales}/>
             }
         </div>
     );

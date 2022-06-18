@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect,useState } from "react";
+import { useNavigate } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 import useFetchToken from "../hooks/useFetchToken";
 import useFetchTokenDatos from "../hooks/useFetchTokenDatos";
@@ -14,6 +14,8 @@ const NuevoPedido = () => {
             error+=`Error al obtener los platos: ${errorPlatos}\n`;
         if (errorOpcionales)
             error+=`Error al obtener los opcionales: ${errorOpcionales}\n`;
+        if (errorPost)
+            error+=`Error al crear el nuevo pedido: ${errorPost}\n`;
         return error;
     }
 
@@ -33,7 +35,7 @@ const NuevoPedido = () => {
     const url = "https://il-piatto-api.herokuapp.com/pedidos"
     const [mensajePost,setMensajePost] = useState(null);
 
-    const {datos:datosPut,cargando:cargandoPut,error:errorPut} = useFetchTokenDatos(url,mensajePost);
+    const {datos:datosPost,cargando:cargandoPost,error:errorPost} = useFetchTokenDatos(url,mensajePost);
 
     useEffect(() => {
         if(usuario)
@@ -44,6 +46,12 @@ const NuevoPedido = () => {
         if(inventario)
             localStorage.setItem("platos",JSON.stringify(inventario));
     },[inventario])
+
+    const navigate = useNavigate();
+    useEffect(() => {
+        if(datosPost)
+            navigate(`/pedidos/${datosPost.id}`)
+    },[datosPost,navigate])
 
     const handleRemove = (event) => {
         event.preventDefault();
@@ -59,9 +67,9 @@ const NuevoPedido = () => {
 
     return (
             <div className="nuevo-pedido">
-                {(errorUsuario || errorPlatos || errorOpcionales) && <div className="mensaje"> {obtenerMensajeError()} </div>}
-                {(cargandoUsuario || cargandoPlatos || cargandoOpcionales) && <div className="mensaje">Cargando...</div>}
-                {usuario && platos && opcionales && inventario && 
+                {(errorUsuario || errorPlatos || errorOpcionales || errorPost) && <div className="mensaje"> {obtenerMensajeError()} </div>}
+                {(cargandoUsuario || cargandoPlatos || cargandoOpcionales || cargandoPost) && <div className="mensaje">Cargando...</div>}
+                {usuario && platos && opcionales && inventario && (!cargandoPost && !errorPost) &&
                     <form onSubmit={handleSubmit}>
                         <div className="direccion">
                             <label>Direccion</label>

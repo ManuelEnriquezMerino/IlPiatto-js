@@ -8,6 +8,7 @@ const useFetchTokenDatos = (url,mensaje) => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
+        
         if(url && mensaje){
             setCargando(true);
             getAccessTokenSilently({
@@ -26,7 +27,7 @@ const useFetchTokenDatos = (url,mensaje) => {
                         return response.json()
                     })
                     .then((data) => {
-                        if(data.codigo>=200 && data.codigo<=200){
+                        if(data.codigo>=200 && data.codigo<=299){
                             setError(null);
                             setDatos(data);
                         }
@@ -47,7 +48,7 @@ const useFetchTokenDatos = (url,mensaje) => {
                 setError(error.message)
             })
         }    
-    }, [mensaje]);
+    }, [url,mensaje,getAccessTokenSilently]);
 
     return { datos, cargando, error}
 }

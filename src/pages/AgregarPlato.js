@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 import { useState } from "react";
 
@@ -23,6 +23,7 @@ const AgregarPlato = (carro) => {
     var estaSeleccionado = (item) =>
       opcionalesSeleccionados.includes(item) ? "checked-item" : "not-checked-item";
   
+    const navigate = useNavigate()
     const handleSubmit = (e) => {
         e.preventDefault();
         var inventario = JSON.parse(localStorage.getItem("platos"))
@@ -32,6 +33,7 @@ const AgregarPlato = (carro) => {
         else
             inventario = [nuevoPlato]
         localStorage.setItem("platos",JSON.stringify(inventario));
+        navigate("/platos");
     }
 
     const obtenerMensajeError = () => {

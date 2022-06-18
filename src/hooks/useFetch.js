@@ -11,7 +11,7 @@ const useFetch = (url) => {
                 return response.json()
             })
             .then((data) => {
-                if(data.codigo>=200 && data.codigo<=200){
+                if(data.codigo>=200 && data.codigo<=299){
                     setError(null);
                     setDatos(data);
                 }
