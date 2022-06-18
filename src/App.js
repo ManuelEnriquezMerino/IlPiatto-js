@@ -1,10 +1,10 @@
-import Platos from './pages/Platos';
-import AgregarPlato from './pages/AgregarPlato';
+import Platos from './pages/Platos/Platos';
+import AgregarPlato from './pages/Platos/AgregarPlato';
 import Usuario from './pages/Usuario';
-import Pedidos from './pages/Pedidos';
+import Pedidos from './pages/Pedidos/Pedidos';
 import Inicio from './pages/Inicio';
-import DatosPedido from './pages/DatosPedido';
-import NuevoPedido from './pages/NuevoPedido';
+import DatosPedido from './pages/Pedidos/DatosPedido';
+import NuevoPedido from './pages/Pedidos/NuevoPedido';
 import BarraDeNavegacion from './components/BarraDeNavegacion';
 import { BrowserRouter as Router,Route,Routes } from 'react-router-dom';
 

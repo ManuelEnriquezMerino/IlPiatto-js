@@ -1,8 +1,8 @@
-import ListadoDePlatos from "../components/ListadoDePlatos";
-import ListadoDePlatosNuevoPedido from "../components/ListadoDePlatosNuevoPedido";
-import useFetch from "../hooks/useFetch";
-import useFetchCategoriaRestriccion from "../hooks/useFetchCategoriaRestriccion";
-import SelectFiltrado from '../components/SelectFiltrado';
+import ListadoDePlatos from "../../components/Listados/ListadoDePlatos";
+import ListadoDePlatosNuevoPedido from "../../components/Listados/ListadoDePlatosNuevoPedido";
+import useFetch from "../../hooks/useFetch";
+import useFetchCategoriaRestriccion from "../../hooks/useFetchCategoriaRestriccion";
+import SelectFiltrado from '../../components/SelectFiltrado';
 import { useState } from "react";
 import { useAuth0 } from '@auth0/auth0-react';
 

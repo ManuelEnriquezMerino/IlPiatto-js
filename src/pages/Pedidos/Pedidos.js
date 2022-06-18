@@ -1,5 +1,5 @@
-import ListadoDePedidos from "../components/ListadoDePedidos";
-import useFetchToken from "../hooks/useFetchToken";
+import ListadoDePedidos from "../../components/Listados/ListadoDePedidos";
+import useFetchToken from "../../hooks/useFetchToken";
 
 
 const Pedidos = () => {

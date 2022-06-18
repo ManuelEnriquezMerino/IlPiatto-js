@@ -1,7 +1,7 @@
-import DatosPedidoPlato from '../components/DatosPedidoPlato';
+import DatosPedidoPlato from '../../components/DatosPedidoPlato';
 import { useParams } from "react-router-dom";
-import useFetchToken from "../hooks/useFetchToken";
-import useFetch from "../hooks/useFetch";
+import useFetchToken from "../../hooks/useFetchToken";
+import useFetch from "../../hooks/useFetch";
 
 const DatosPedido = () => {
 

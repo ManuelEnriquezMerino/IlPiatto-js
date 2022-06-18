@@ -1,8 +1,8 @@
 import { useEffect,useState } from "react";
 import { useNavigate } from "react-router-dom";
-import useFetch from "../hooks/useFetch";
-import useFetchToken from "../hooks/useFetchToken";
-import useFetchTokenDatos from "../hooks/useFetchTokenDatos";
+import useFetch from "../../hooks/useFetch";
+import useFetchToken from "../../hooks/useFetchToken";
+import useFetchTokenDatos from "../../hooks/useFetchTokenDatos";
 
 const NuevoPedido = () => {
 
