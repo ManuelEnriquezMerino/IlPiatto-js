@@ -6,7 +6,7 @@ function LogoutButton() {
 
   return (
     <button className='navbutton' onClick={() => {
-      logout({ returnTo: window.location.origin });
+      logout({ returnTo: "https://il-piatto-js.herokuapp.com/" });
     }}>Log out</button>
   );
 }
