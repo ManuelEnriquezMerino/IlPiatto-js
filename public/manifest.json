@@ -1,7 +1,7 @@
 {
   "name": "Il Piatto",
   "short_name": "Il Piatto",
-  "start_url": "index.html",
+  "start_url": "/",
   "icons": [
       {
         "src": "https://i.imgur.com/EHKVpm2.png",
