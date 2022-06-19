@@ -7,7 +7,7 @@ const DatosPedido = () => {
 
     const obtenerMensajeError = () => {
         var error = "";
-        if (errorPlatos)
+        if (errorPedido)
             error+=`Error al obtener los datos del pedido: ${errorPedido}\n`;
         if (errorPlatos)
             error+=`Error al obtener los platos: ${errorPlatos}\n`;
