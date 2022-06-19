@@ -29,7 +29,8 @@ const Usuario = () => {
             setEmail(usuario.usuario.email)
             setNombre(usuario.usuario.nombre)
             setApellido(usuario.usuario.apellido)
-            setNacimiento(usuario.usuario.nacimiento.substring(0, usuario.usuario.nacimiento.indexOf('T')))
+            if(usuario.usuario.nacimiento)
+                setNacimiento(usuario.usuario.nacimiento.substring(0, usuario.usuario.nacimiento.indexOf('T')))
             setDireccion(usuario.usuario.direccion)
             setURL(`https://il-piatto-api.herokuapp.com/usuarios/${usuario.usuario.id}`);
         }
