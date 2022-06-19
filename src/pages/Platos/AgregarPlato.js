@@ -49,16 +49,21 @@ const AgregarPlato = (carro) => {
         <div className="agregar-plato">
         {(errorPlato || (errorOpcionales && errorOpcionales!=="El plato ingresado no tiene opcionales")) && <div className="mensaje"> {obtenerMensajeError()} </div>}
         {(cargandoPlato || cargandoOpcionales) && <div className="mensaje">Cargando...</div>}
-        {plato &&
+        {plato && (!cargandoOpcionales && (!errorOpcionales || errorOpcionales==="El plato ingresado no tiene opcionales")) &&
             <form onSubmit={handleSubmit}>
+                <div className="plato">
                 <h1>{plato.plato[0].nombre}</h1>
                 <p>{plato.plato[0].descripcion}</p>
                 <p>${plato.plato[0].precio}</p>
-                <div className="list-container">
+                </div>
+                <div>
                     {opcionales && opcionales.opcionales.map((opcional) => (
                             <div key={opcional.id} className="opcional">
-                                <input value={opcional.id} type="checkbox" onChange={handleCheck} />
-                                <span className={estaSeleccionado(opcional.id)}>{opcional.nombre}</span>
+                                <label>
+                                    <input value={opcional.id} type="checkbox" onChange={handleCheck} />
+                                    <span className={estaSeleccionado(opcional.id)}/>
+                                    {opcional.nombre}
+                                </label>
                                 <p>{opcional.descripcion}</p>
                                 <p>${opcional.precio}</p>
                             </div>

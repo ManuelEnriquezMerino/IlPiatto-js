@@ -71,10 +71,10 @@ const NuevoPedido = () => {
                 {(cargandoUsuario || cargandoPlatos || cargandoOpcionales || cargandoPost) && <div className="mensaje">Cargando...</div>}
                 {usuario && platos && opcionales && inventario && (!cargandoPost && !errorPost) &&
                     <form onSubmit={handleSubmit}>
-                        <div className="direccion">
-                            <label>Direccion</label>
+                        <label className="direccion">
+                            Direccion
                             <input type="text" required value={direccion} onChange={(e) => setDireccion(e.target.value)}/>
-                        </div>
+                        </label>
                         {inventario.map((orden,index) => (
                                     <div key={index} className="orden">
                                         <h1>{platos.platos.find(plato=>plato.id===orden.plato).nombre}</h1>

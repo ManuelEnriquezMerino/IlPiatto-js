@@ -236,8 +236,12 @@
   text-align: center;
 }
 
-.opcional{
+.plato{
   margin: 20px;
+}
+
+.opcional{
+  margin-bottom: 20px;
 }
 
 .link {
@@ -263,5 +267,5 @@
 }
 
 .direccion{
-  display:flex;
+  margin: 10px;
 }

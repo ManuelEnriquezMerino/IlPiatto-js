@@ -54,14 +54,22 @@ const Usuario = () => {
                     <label>Usuario: {nombreUsuario}</label>
                     <label>Email: {email}</label>
                     <form onSubmit={handleSubmit}>
-                        <label>Nombre</label>
-                        <input type="text" required value={nombre} onChange={(e) => setNombre(e.target.value)}/>
-                        <label>Apellido</label>
-                        <input type="text" required value={apellido} onChange={(e) => setApellido(e.target.value)}/>
-                        <label>Nacimiento</label>
-                        <input type="text" required value={nacimiento} onChange={(e) => setNacimiento(e.target.value)}/>
-                        <label>Direccion</label>
-                        <input type="text" required value={direccion} onChange={(e) => setDireccion(e.target.value)}/>
+                        <label>
+                            Nombre
+                            <input type="text" required value={nombre} onChange={(e) => setNombre(e.target.value)}/>
+                        </label>
+                        <label>
+                            Apellido
+                            <input type="text" required value={apellido} onChange={(e) => setApellido(e.target.value)}/>  
+                        </label>
+                        <label>
+                            Nacimiento
+                            <input type="text" required value={nacimiento} onChange={(e) => setNacimiento(e.target.value)}/>
+                        </label>
+                        <label>
+                            Direccion
+                            <input type="text" required value={direccion} onChange={(e) => setDireccion(e.target.value)}/>
+                        </label>
                         {!cargandoPut && <button className="boton">Guardar</button>}
                         {cargandoPut && <button className="boton-deshabilitado" disabled>Guardando usuario</button>}
                     </form>
