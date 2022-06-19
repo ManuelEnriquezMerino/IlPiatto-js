@@ -43,7 +43,7 @@
     <script>
       if ('serviceWorker' in navigator) {
       window.addEventListener('load', function() {
-      navigator.serviceWorker.register('%PUBLIC_URL%/serviceWorker.js').then(function(registration) {}, function(err) {});
+      navigator.serviceWorker.register('%PUBLIC_URL%/serviceWorker.js');
       });
       }
       </script>

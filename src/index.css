@@ -49,6 +49,7 @@
   margin-left: 16px;
   text-decoration: none;
   padding: 6px;
+  cursor: pointer;  
 }
 
 .barranavegacion .navbutton:hover {
