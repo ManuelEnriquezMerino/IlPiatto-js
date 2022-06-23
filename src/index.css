@@ -1,13 +1,272 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+
+
+.logo{
+  margin-right: auto;
+  margin-right: 40px;
+  max-width: 60px;
+  height: auto;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* base styles */
+* {
+  margin: 0;
+  background-color: #282c34;
+  font-family: "Quicksand";
+  color: rgb(230, 224, 208);
+}
+
+/* Barra de navegacion */
+.barranavegacion *{
+  background-color: #35383d;
+  font-size: 16px;
+
+}
+
+.barranavegacion {
+  background-color: #35383d;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  box-shadow: 1px 5px 10px #181a1c6c;
+}
+
+.barranavegacion h1 {
+  color: #c8975b;
+}
+
+.barranavegacion .links {
+  margin-left: auto;
+  display: inline-block;
+}
+
+.barranavegacion .navbutton{
+  padding: 0;
+  border: none;
+  background: none;
+  margin-left: 16px;
+  text-decoration: none;
+  padding: 6px;
+  cursor: pointer;  
+}
+
+.barranavegacion .navbutton:hover {
+  color: #b88445;
+}
+
+.barranavegacion a {
+  margin-left: 16px;
+  text-decoration: none;
+  padding: 10px;
+  display: inline-block;
+}
+
+.barranavegacion a:hover {
+  color: #b88445;
+}
+
+.content {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.platos{
+  margin: 20px;
+}
+
+.preview-plato {
+  padding: 10px 16px;
+  margin: 20px 0;
+}
+.preview-plato:hover {
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.703);
+}
+.preview-plato h2 {
+  font-size: 20px;
+  color: #c8975b;
+  margin-bottom: 8px;
+}
+
+.mensaje{
+  margin: 20px;
+  font-size: 30px;
+  text-align: center;
+  white-space: pre-wrap;
+}
+
+.seleccion{
+  display: flex;
+  justify-content: 'center';
+  align-items: center
+}
+
+.seleccion *{
+  background-color:aliceblue;
+  color: #c8975b;
+  flex: 1;
+}
+
+.inicio{
+  margin:15px;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.slide-container{
+  max-width: 400px;
+  margin: auto;
+  border:3px solid #181a1f;
+}
+
+.slide-container img {
+  display: block;
+}
+
+.each-fade {
+  display: flex;
+}
+
+.each-fade .image-container {
+  max-width: 400px;
+  overflow: hidden;
+}
+
+.each-fade .image-container img {
+  max-width: 400px;
+}
+
+.each-fade h2 {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  background: #adceed;
+}
+
+.mostrarPedido{
+  margin: 20px;
+  width:auto;
+  text-align: center;
+}
+
+.mostrarPedido h2{
+  color: #c87673;
+}
+
+.mostrarPedido h3{
+  color: #c8975b;
+}
+
+.mostrarPedido h4{
+  color: #c6b67c;
+}
+
+.opcionales {
+  display: inline-block;
+}
+
+.labelSeleccion {
+  color: #c8975b;
+  text-align: center;
+  background: none;
+}
+
+.select-box {
+  background: none;
+  margin:25px;
+}
+
+.usuario {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+.usuario label {
+  text-align: left;
+  display: block;
+  padding: 6px 10px;
+  margin: 10px 0;
+}
+.usuario input {
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+}
+
+.boton {
+  background: #181f2e;
+  color: #fff;
+  border: 2px solid #121329;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;  
+}
+
+.boton-deshabilitado {
+  background: #26282d;
+  color: #fff;
+  border: 2px solid #151515;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.boton-plato-pedido{
+  background: #181f2e;
+  color: #fff;
+  border: 2px solid #121329;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer; 
+  margin-bottom: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: 0;
+  margin-top: 0;
+}
+
+.agregar-plato{
+  margin: 20px;
+  width:auto;
+  text-align: center;
+}
+
+.plato{
+  margin: 20px;
+}
+
+.opcional{
+  margin-bottom: 20px;
+}
+
+.link {
+  text-decoration: none;
+}
+
+
+.nuevo-pedido {
+  max-width: 400px;
+  margin: 20px auto;
+  text-align: center;
+}
+.nuevo-pedido label {
+  padding: 6px 10px;
+  margin: 10px 0;
+}
+.nuevo-pedido input {
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+}
+
+.direccion{
+  margin: 10px;
 }
