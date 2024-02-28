@@ -30,8 +30,8 @@ const Platos = () => {
     const categoriaDefecto = {value:null, label:"Todas"};
     const restriccionDefecto = {value:null, label:"Ninguna"};
 
-    const {datos:categorias,cargando:cargandoCategorias,error:errorCategorias} = useFetch("https://il-piatto-api.herokuapp.com/platos/categorias");
-    const {datos:restricciones,cargando:cargandoRestricciones,error:errorRestricciones} = useFetch("https://il-piatto-api.herokuapp.com/platos/restricciones");
+    const {datos:categorias,cargando:cargandoCategorias,error:errorCategorias} = useFetch(process.env.REACT_APP_API+"platos/categorias");
+    const {datos:restricciones,cargando:cargandoRestricciones,error:errorRestricciones} = useFetch(process.env.REACT_APP_API+"platos/restricciones");
 
     const [categoriaSeleccionada, setCategoriaSeleccionada] = useState(categoriaDefecto);
     const [restriccionSeleccionada, setRestriccionSeleccionada] = useState(restriccionDefecto);
