@@ -9,7 +9,7 @@ const useFetchToken = (url) => {
 
     useEffect(() => {
         getAccessTokenSilently({
-            audience: 'https://il-piatto-api.herokuapp.com/'
+            audience: process.env.REACT_APP_API
         })
         .then(token =>{
             fetch(url, {

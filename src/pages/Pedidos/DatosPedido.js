@@ -18,9 +18,9 @@ const DatosPedido = () => {
     
 
     const {id} = useParams();
-    const {datos:pedido,cargando:cargandoPedido,error:errorPedido} = useFetchToken(`https://il-piatto-api.herokuapp.com/pedidos/${id}`);
-    const {datos:platos,cargando:cargandoPlatos,error:errorPlatos} = useFetch("https://il-piatto-api.herokuapp.com/platos");
-    const {datos:opcionales,cargando:cargandoOpcionales,error:errorOpcionales} = useFetch("https://il-piatto-api.herokuapp.com/platos/opcionales");
+    const {datos:pedido,cargando:cargandoPedido,error:errorPedido} = useFetchToken(process.env.REACT_APP_API+`pedidos/${id}`);
+    const {datos:platos,cargando:cargandoPlatos,error:errorPlatos} = useFetch(process.env.REACT_APP_API+"platos");
+    const {datos:opcionales,cargando:cargandoOpcionales,error:errorOpcionales} = useFetch(process.env.REACT_APP_API+"platos/opcionales");
 
     return (
         <div className="mostrarPedido">

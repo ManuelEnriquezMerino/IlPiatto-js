@@ -5,8 +5,8 @@ import { useState } from "react";
 const AgregarPlato = (carro) => {
 
     const {id} = useParams();
-    const {datos:plato,cargando:cargandoPlato,error:errorPlato} = useFetch(`https://il-piatto-api.herokuapp.com/platos/${id}`);
-    const {datos:opcionales,cargando:cargandoOpcionales,error:errorOpcionales} = useFetch(`https://il-piatto-api.herokuapp.com/platos/opcionales/${id}`);
+    const {datos:plato,cargando:cargandoPlato,error:errorPlato} = useFetch(process.env.REACT_APP_API+`platos/${id}`);
+    const {datos:opcionales,cargando:cargandoOpcionales,error:errorOpcionales} = useFetch(process.env.REACT_APP_API+`platos/opcionales/${id}`);
 
     const [opcionalesSeleccionados, setOpticonalesSeleccionados] = useState([]);
 
