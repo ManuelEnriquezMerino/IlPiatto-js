@@ -11,7 +11,7 @@ const Usuario = () => {
     const [nacimiento,setNacimiento] = useState("")
     const [direccion,setDireccion] = useState("")   
 
-    const {datos:usuario,cargando:cargandoUsuario,error:errorUsuario} = useFetchToken(process.env.REACT_APP_API+"usuarios")
+    const {datos:usuario,cargando:cargandoUsuario,error:errorUsuario} = useFetchToken("https://ilpiatto-api.onrender.com/usuarios")
 
     const [url,setURL] = useState("");
     const [mensajePut,setUsuarioMensajePut] = useState(null);
@@ -32,7 +32,7 @@ const Usuario = () => {
             if(usuario.usuario.nacimiento)
                 setNacimiento(usuario.usuario.nacimiento.substring(0, usuario.usuario.nacimiento.indexOf('T')))
             setDireccion(usuario.usuario.direccion)
-            setURL(process.env.REACT_APP_API+`usuarios/${usuario.usuario.id}`);
+            setURL(`https://ilpiatto-api.onrender.com/usuarios/${usuario.usuario.id}`);
         }
     },[usuario])
 
