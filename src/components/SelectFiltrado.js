@@ -9,7 +9,13 @@ const SelectFiltrado = ({dato,funcionSet,opciones}) => {
                                     options={opciones}
                                     components={{
                                         IndicatorSeparator: () => null
-                                      }}
+                                        }}
+                                    styles={{
+                                            menu: base => ({
+                                                ...base,
+                                                marginTop: 0
+                                            })
+                                        }}
             />
     );
 }
