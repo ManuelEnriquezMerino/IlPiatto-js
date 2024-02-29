@@ -18,9 +18,9 @@ const DatosPedido = () => {
     
 
     const {id} = useParams();
-    const {datos:pedido,cargando:cargandoPedido,error:errorPedido} = useFetchToken(process.env.REACT_APP_API+`pedidos/${id}`);
-    const {datos:platos,cargando:cargandoPlatos,error:errorPlatos} = useFetch(process.env.REACT_APP_API+"platos");
-    const {datos:opcionales,cargando:cargandoOpcionales,error:errorOpcionales} = useFetch(process.env.REACT_APP_API+"platos/opcionales");
+    const {datos:pedido,cargando:cargandoPedido,error:errorPedido} = useFetchToken(`https://ilpiatto-api.onrender.com/pedidos/${id}`);
+    const {datos:platos,cargando:cargandoPlatos,error:errorPlatos} = useFetch("https://ilpiatto-api.onrender.com/platos");
+    const {datos:opcionales,cargando:cargandoOpcionales,error:errorOpcionales} = useFetch("https://ilpiatto-api.onrender.com/platos/opcionales");
 
     return (
         <div className="mostrarPedido">

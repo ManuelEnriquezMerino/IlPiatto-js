@@ -6,11 +6,11 @@ const useFetchCategoriaRestriccion = (categoria,restriccion) => {
     const [error, setError] = useState(null);
  
     useEffect(() => {
-        var urlCategoria = process.env.REACT_APP_API+"platos";
+        var urlCategoria = "https://ilpiatto-api.onrender.com/platos";
         if(categoria.value!=null)
             urlCategoria+=`/categorias/${categoria.value}`;
 
-        var urlRestriccion = process.env.REACT_APP_API+"platos"
+        var urlRestriccion = "https://ilpiatto-api.onrender.com/platos"
         if(restriccion.value!=null)
             urlRestriccion+=`/restricciones/${restriccion.value}`
 

@@ -9,7 +9,7 @@ const useFetchToken = (url) => {
 
     useEffect(() => {
         getAccessTokenSilently({
-            audience: process.env.REACT_APP_API
+            audience: "https://ilpiatto-api.onrender.com/"
         })
         .then(token =>{
             fetch(url, {
