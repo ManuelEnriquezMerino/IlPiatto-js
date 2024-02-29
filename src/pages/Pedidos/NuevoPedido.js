@@ -28,11 +28,11 @@ const NuevoPedido = () => {
 
     const [direccion,setDireccion] = useState("");
     
-    const {datos:usuario,cargando:cargandoUsuario,error:errorUsuario} = useFetchToken("https://ilpiatto-api.onrender.com/usuarios")
-    const {datos:platos,cargando:cargandoPlatos,error:errorPlatos} = useFetch("https://ilpiatto-api.onrender.com/platos");
-    const {datos:opcionales,cargando:cargandoOpcionales,error:errorOpcionales} = useFetch("https://ilpiatto-api.onrender.com/platos/opcionales");
+    const {datos:usuario,cargando:cargandoUsuario,error:errorUsuario} = useFetchToken(process.env.REACT_APP_API+"usuarios")
+    const {datos:platos,cargando:cargandoPlatos,error:errorPlatos} = useFetch(process.env.REACT_APP_API+"platos");
+    const {datos:opcionales,cargando:cargandoOpcionales,error:errorOpcionales} = useFetch(process.env.REACT_APP_API+"platos/opcionales");
     const [inventario, setInventario] = useState(inicializarInventario)
-    const url = "https://ilpiatto-api.onrender.com/pedidos"
+    const url = process.env.REACT_APP_API+"pedidos"
     const [mensajePost,setMensajePost] = useState(null);
 
     const {datos:datosPost,cargando:cargandoPost,error:errorPost} = useFetchTokenDatos(url,mensajePost);

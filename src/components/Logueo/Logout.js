@@ -6,7 +6,7 @@ function LogoutButton() {
 
   return (
     <button className='navbutton' onClick={() => {
-      logout({ returnTo: "https://ilpiatto-js.onrender.com/" });
+      logout({ returnTo: process.env.REACT_APP_APP });
     }}>Log out</button>
   );
 }

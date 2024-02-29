@@ -4,7 +4,7 @@ import useFetchToken from "../../hooks/useFetchToken";
 
 const Pedidos = () => {
 
-    const {datos:pedidos,cargando,error} = useFetchToken("https://ilpiatto-api.onrender.com/pedidos/");
+    const {datos:pedidos,cargando,error} = useFetchToken(process.env.REACT_APP_API+"pedidos/");
 
     return ( 
         <div className="pedidos">
